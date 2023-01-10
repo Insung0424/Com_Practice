@@ -17,11 +17,6 @@ public class TestController {
 
     private final HelloService helloService;
 
-    @GetMapping("/")
-    public String home(){
-        return "index.html";
-    }
-
     @GetMapping("/get/{data}")
     @ResponseBody
     public String dynamicHello(@PathVariable String data){

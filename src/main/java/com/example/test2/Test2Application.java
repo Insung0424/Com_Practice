@@ -5,8 +5,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.PropertySource;
 
 @SpringBootApplication
-@PropertySource(value = "application-mariadb.properties")
-@PropertySource(value = "application.properties")
 public class Test2Application {
 
 	public static void main(String[] args) {
