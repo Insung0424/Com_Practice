@@ -2,12 +2,16 @@ package com.example.test2.controller;
 
 import com.example.test2.entity.Hello;
 import com.example.test2.service.HelloService;
+import com.fasterxml.jackson.databind.util.JSONPObject;
 import lombok.RequiredArgsConstructor;
+import org.json.simple.JSONObject;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpServletResponse;
 import java.util.Date;
 import java.util.List;
 
@@ -39,8 +43,10 @@ public class TestController {
 
     @GetMapping("/api/hello")
     @ResponseBody
-    public String hello(){
-        return "현재 시간은 "+ new Date() + " 입니다.";
+    public JSONObject hello(){
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("content","hello 현재 시간은 "+ new Date() + " 입니다.");
+        return jsonObject;
     }
 
 }
