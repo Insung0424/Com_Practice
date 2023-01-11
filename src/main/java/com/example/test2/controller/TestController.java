@@ -21,23 +21,25 @@ public class TestController {
 
     private final HelloService helloService;
 
-    @GetMapping("/get/{data}")
+    @GetMapping("/get/data")
     @ResponseBody
-    public String dynamicHello(@PathVariable String data){
+    public String dynamicHello(){
 
         List<Hello> helloList = helloService.findTextAll();
 
         int helloCnt = helloList.size();
 
-        if(helloCnt == 0){
-            helloService.save(Hello.builder().word(data).build());
-        }
-
-        helloService.save(Hello.builder().word(data).build());
-        // 중복등록이 되지말아야할 이유가 없나?
+//        if(helloCnt == 0){
+//            helloService.save(Hello.builder().word(data).build());
+//        }
+//        등록 구현 주석 처리
+//        helloService.save(Hello.builder().word(data).build());
+//        // 중복등록이 되지말아야할 이유가 없나?
 
         Long id = (long) (Math.random() * helloCnt + 1);
-        return helloService.findId(id).get().getWord();
+
+        String content = helloService.findId(id).get().getWord();
+        return content;
 
     }
 

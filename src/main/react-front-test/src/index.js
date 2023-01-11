@@ -1,9 +1,10 @@
-import { Home, NotFound } from './components.js';
+import { Home, dynamic, NotFound } from './components.js';
 
 const $root = document.getElementById('root');
 
 const routes = [
   { path: '', component: Home },
+  { path: 'dynamic', component: dynamic },
 ];
 
 const render = async () => {
