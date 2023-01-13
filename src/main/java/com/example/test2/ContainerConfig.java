@@ -43,8 +43,6 @@
 //
 //        ajpConnector.setScheme("http");
 //
-//        ajpConnector.setRedirectPort(redirectPort);
-//
 //        ((AbstractAjpProtocol<?>) ajpConnector.getProtocolHandler()).setSecretRequired(false);
 //
 //        return ajpConnector;
