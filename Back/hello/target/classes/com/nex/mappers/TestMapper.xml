@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.nex.mappers.TestMapper">
+
+	<insert id="insertData">
+		insert into hello(word) values(#{word})
+	</insert>
+	
+	<select id="getOne" resultType="com.nex.testDTO.TestData">
+		select * from hello where id = #{randomN}
+	</select>
+	
+	<select id="getAll" resultType="com.nex.testDTO.TestData">
+		select * from hello
+	</select>
+
+</mapper>
