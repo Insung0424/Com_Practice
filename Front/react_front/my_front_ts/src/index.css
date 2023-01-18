@@ -1,0 +1,45 @@
+body {
+  font: 14px "Century Gothic", Futura, sans-serif;
+  margin: 20px;
+  position: relative;
+}
+
+img {
+  position: fixed;
+  top: 3.3%;
+  right: 38%;
+}
+
+.square {
+  background: #fff;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 34px;
+  height: 34px;
+  margin-right: -1px;
+  margin-top: -1px;
+  padding: 0;
+}
+
+.btn {
+  width: 100px;
+  height: 30px;
+  text-align: center;
+  border: #aaa;
+  border-radius: 20%;
+  background-color: cornflowerblue;
+  position: fixed;
+  top: 4%;
+  left: 24%;
+  font-weight: 600;
+  transition: all ease 1s 0s;
+}
+.btn:hover {
+  cursor: pointer;
+  width: 150px;
+  height: 45px;
+  font-size: calc(17px * 1.5);
+  background-color: darkcyan;
+}
+
+  
