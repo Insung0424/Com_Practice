@@ -8,9 +8,6 @@ class Screen extends React.Component {
     return (
       <div className='d1'>
         <Welcome />
-        <div className='d2'>
-          <Btn />
-        </div>
       </div>
     );
   }
@@ -23,6 +20,9 @@ class Welcome extends React.Component {
         <h1>Hello, world</h1>
         <p>폴더 경로 재작업 후 확인 완료</p>
         <p>타입스크립트로 변경 후 확인 완료</p>
+        <div className='d2'>
+          <Btn />
+        </div>
       </div>
     );
   }
@@ -48,13 +48,13 @@ const Img = ({Url, imgUrl, altDes}) => (
     <div>
       <br></br>
       <a href={Url} >
-        <img src={imgUrl} alt={altDes}/>
+        <img src={imgUrl} alt={altDes} />
       </a>
     </div>
 );
 
 Img.defaultProps = {
-  Url : "http://localhost:8080/",
+  Url : "http://192.168.0.173:8080/",
   imgUrl : '/images/Hello_World.png',
   altDes : 'Hello_World.png'
 }
