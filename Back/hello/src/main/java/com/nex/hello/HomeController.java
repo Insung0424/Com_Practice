@@ -41,8 +41,9 @@ public class HomeController {
 		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
 		String formattedDate = dateFormat.format(date);
 		model.addAttribute("serverTime", formattedDate );
-		
-		int randomN = (int)(Math.random()*10)+1;
+
+		List<TestData> all = testservice.getAll();
+		int randomN = (int)(Math.random()*all.size())+1;
 		TestData randomData = testservice.getOne(randomN);
 		model.addAttribute("randomData", randomData);
 //		List<TestData> total = testservice.getAll();
