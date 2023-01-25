@@ -1,22 +1,16 @@
-package com.example.test2.controller;
+package com.example.speedTest.controller;
 
-import com.example.test2.entity.Hello;
-import com.example.test2.service.HelloService;
-import com.fasterxml.jackson.databind.util.JSONPObject;
+import com.example.speedTest.entity.Hello;
+import com.example.speedTest.service.HelloService;
 import lombok.RequiredArgsConstructor;
 import org.json.simple.JSONObject;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import javax.servlet.http.HttpServletResponse;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
-
-import static org.aspectj.runtime.internal.Conversions.intValue;
 
 @Controller
 @RequiredArgsConstructor
