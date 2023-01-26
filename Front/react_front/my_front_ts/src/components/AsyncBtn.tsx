@@ -11,7 +11,7 @@ const AsyncBtn = () => {
     e.preventDefault();
     let word = onChangeHandler;
 		
-	    fetch('testbackpage.com/input', {
+	    fetch('http://www.testbackpage.com/input', {
 		    method: 'POST', 
 		    headers: {
 		      'Content-Type': 'application/json',
