@@ -1,5 +1,6 @@
 import React from 'react';
 import Btn from './Btn';
+import AsyncBtn from './AsyncBtn';
 import '../index.css';
 
 const Welcome = () => {
@@ -8,6 +9,7 @@ const Welcome = () => {
           <h1>Hello, world</h1>
           <div className='d2'>
             <Btn />
+            <AsyncBtn />
           </div>
         </div>
         );
