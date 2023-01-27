@@ -16,7 +16,7 @@
 <br>
 <div>
 <form>
-	input value :<input id="inputWord" type="text"/>
+	Please enter a word :<input id="inputWord" type="text"/>
 	<button type="button" onClick="postData()">Async Button</button>
 </form>
 </div>
@@ -25,6 +25,10 @@
 	function postData() {
 		let word = document.getElementById("inputWord").value;
 	    console.log(word);
+	    if(word == '') {
+	    	alert("Please enter a word");
+	    	return;
+	    }
 		
 	    fetch('/input', {
 		    method: 'POST', 
@@ -39,6 +43,7 @@
 		  .then((data) => {
 			  alert(data);
 		  });
+	    document.getElementById("inputWord").value = "";
 	}
 </script>
 
