@@ -18,8 +18,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.nex.VO.TestDataVO;
 import com.nex.service.TestService;
-import com.nex.testDTO.TestData;
+import com.nex.testDTO.TestDataDTO;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -51,14 +52,14 @@ public class HomeController {
 		log.info("=========== DB connect start ===========");
 		long start = System.currentTimeMillis();
 		
-		List<TestData> total = testservice.getAll();
-		for(TestData i : total) {
+		List<TestDataVO> total = testservice.getAll();
+		for(TestDataVO i : total) {
 			log.info("TestData N_id : "+ String.valueOf(i.getId()));
 			log.info("TestData N_word : "+ i.getWord());
 		}
 		
 		int randomN = (int)(Math.random()*total.size())+1;
-		TestData randomData = testservice.getOne(randomN);
+		TestDataVO randomData = testservice.getOne(randomN);
 		model.addAttribute("randomData", randomData);
 		
 		Long end = System.currentTimeMillis();
@@ -71,18 +72,18 @@ public class HomeController {
 	
 	@GetMapping("/getOne")
 	@ResponseBody
-	public TestData getone() {
+	public TestDataVO getone() {
 		
-		List<TestData> total = testservice.getAll();
+		List<TestDataVO> total = testservice.getAll();
 		int randomN = (int)(Math.random()*total.size())+1;
-		TestData randomData = testservice.getOne(randomN);
+		TestDataVO randomData = testservice.getOne(randomN);
 		
 		return randomData;
 	}
 	
 	@PostMapping("/input")
 	@ResponseBody
-	public String inputData(@RequestBody TestData testData) {
+	public String inputData(@RequestBody TestDataDTO testData) {
 		log.info("insert");
 		int t1 = testservice.insertData(testData.getWord());
 		boolean bt1 = t1>0 ? true : false;

@@ -4,8 +4,9 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.nex.VO.TestDataVO;
 import com.nex.mappers.TestMapper;
-import com.nex.testDTO.TestData;
+import com.nex.testDTO.TestDataDTO;
 
 import lombok.RequiredArgsConstructor;
 
@@ -21,13 +22,13 @@ public class TestServiceImpl implements TestService {
 	}
 
 	@Override
-	public TestData getOne(int randomN) {
+	public TestDataVO getOne(int randomN) {
 		return testMapper.getOne(randomN);
 	}
 
 	@Override
-	public List<TestData> getAll() {
-		List<TestData> total = testMapper.getAll();
+	public List<TestDataVO> getAll() {
+		List<TestDataVO> total = testMapper.getAll();
 		return total;
 	}
 

@@ -7,11 +7,11 @@
 		insert into hello(word) values(#{word})
 	</insert>
 	
-	<select id="getOne" resultType="com.nex.testDTO.TestData">
+	<select id="getOne" resultType="com.nex.VO.TestDataVO">
 		select * from hello where id = #{randomN}
 	</select>
 	
-	<select id="getAll" resultType="com.nex.testDTO.TestData">
+	<select id="getAll" resultType="com.nex.VO.TestDataVO">
 		select * from hello
 	</select>
 

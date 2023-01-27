@@ -2,13 +2,14 @@ package com.nex.mappers;
 
 import java.util.List;
 
-import com.nex.testDTO.TestData;
+import com.nex.VO.TestDataVO;
+import com.nex.testDTO.TestDataDTO;
 
 public interface TestMapper {
 	
 	public int insertData(String word);
 	
-	public TestData getOne(int randomN);
+	public TestDataVO getOne(int randomN);
 	
-	public List<TestData> getAll();
+	public List<TestDataVO> getAll();
 }
