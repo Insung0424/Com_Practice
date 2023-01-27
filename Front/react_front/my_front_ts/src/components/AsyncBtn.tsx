@@ -9,27 +9,32 @@ const AsyncBtn = () => {
 
   const asyncBbuttonHandler = (e: any) => {
     e.preventDefault();
-    let word = onChangeHandler;
+    if (word == '') {
+      alert("Please enter a word");
+      return;
+    }
+    console.log(word);
 		
-	    fetch('http://www.testbackpage.com/input', {
-		    method: 'POST', 
-		    headers: {
-		      'Content-Type': 'application/json',
-		    },
-		    body: JSON.stringify({ word: word }), 
-		  })
-		  .then( (response) => {
-			  return response.text();
-		  })
-		  .then((data) => {
-			  alert(data);
-		  });
-  };
+    fetch('http://www.testbackpage.com/input', {
+      method: 'POST', 
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ word: word }), 
+    })
+    .then( (response) => {
+      return response.text();
+    })
+    .then((data) => {
+      setWord('');
+      alert(data);
+    });
+};
 
   return (
     <div>
       <form >
-        Enter a random word : <input type="text" id="inputWord" onChange={onChangeHandler}/>
+        Please enter a word : <input value={word} type="text" id="inputWord" onChange={onChangeHandler}/>
 
         <button type="button" onClick={asyncBbuttonHandler}>
           비동기버튼
