@@ -9,7 +9,7 @@ const AsyncBtn = () => {
 
   const asyncBbuttonHandler = (e: any) => {
     e.preventDefault();
-    if (word == '') {
+    if (word === '') {
       alert("Please enter a word");
       return;
     }

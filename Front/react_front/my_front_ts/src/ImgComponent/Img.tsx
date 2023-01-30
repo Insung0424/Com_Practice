@@ -1,10 +1,12 @@
 import React from 'react';
 import '../index.css';
+import ImgComponent from './ImgComponent';
 
 type IMG = {
   Url: string, 
   imgUrl: string, 
-  altDes: string
+  altDes: string,
+  tImgUrl: string
 }
 
 const Img = (props: IMG) => {
@@ -12,7 +14,7 @@ const Img = (props: IMG) => {
     <div>
       <br></br>
       <a href={props.Url} >
-        <img src={props.imgUrl} alt={props.altDes} />
+        <ImgComponent placeholderSrc={props.tImgUrl} src={props.imgUrl} width="1980px" height="1086px"/>
       </a>
     </div>
   );

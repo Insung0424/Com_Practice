@@ -1,12 +1,6 @@
 import React, { useState } from 'react';
-import Img from './Img';
+import ImgComponent from '../ImgComponent/ImgComponent';
 import '../index.css';
-
-const IMG = {
-  Url : "http://www.testbackpage.com",
-  imgUrl : '/images/Hello_World.png',
-  altDes : 'Hello_World.png',
-}
 
 const Btn = () => {
     const [show, setShow] = useState(false);
@@ -18,7 +12,7 @@ const Btn = () => {
         <button className='btn' onClick={onOffHandler}>
           {show ? 'OFF' : 'ON'}
         </button>
-        {show && <Img Url={IMG.Url} imgUrl={IMG.imgUrl} altDes={IMG.altDes}/>}
+        {show && <ImgComponent alt='high.jpg' placeholderSrc='../images/tiny.jpg' src='../images/high.jpg'/>}
       </div>
     )
   }
