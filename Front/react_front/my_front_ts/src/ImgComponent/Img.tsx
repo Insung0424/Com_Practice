@@ -1,6 +1,6 @@
 import React from 'react';
 import '../index.css';
-import ImgComponent from './ImgComponent';
+import ImgComponent from './ProgressiveImg';
 
 type IMG = {
   Url: string, 

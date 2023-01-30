@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from "react"; 
-import './ImgComponent.css';
+import { useState, useEffect } from "react";
 
-const ImgComponent = ({ placeholderSrc, src, ...props }) => {
+const ProgressiveImg = ({ placeholderSrc, src, ...props }) => {
   const [imgSrc, setImgSrc] = useState(placeholderSrc || src);
 
   useEffect(() => {
@@ -16,13 +15,11 @@ const ImgComponent = ({ placeholderSrc, src, ...props }) => {
   placeholderSrc && imgSrc === placeholderSrc ? "loading" : "loaded";
 
   return (
-    <a href="http://www.testbackpage.com">
     <img
-      {...{ src: placeholderSrc, ...props }}
-      alt={props.altDes || ""}
+      {...{ src: imgSrc, ...props }}
+      alt={props.alt || ""}
       className={`image ${customClass}`}
-    /></a>
+    />
   );
 };
-
-export default ImgComponent;
+export default ProgressiveImg;
