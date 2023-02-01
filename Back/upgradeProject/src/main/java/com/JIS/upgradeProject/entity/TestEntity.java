@@ -1,6 +1,7 @@
 package com.JIS.upgradeProject.entity;
 
 import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.*;
 
 import javax.persistence.*;
@@ -14,11 +15,11 @@ public class TestEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Parameter(description = "자동증가하는 숫자")
+    @Schema(description = "자동증가하는 숫자")
     private long id;
 
     @Column(nullable = false)
-    @Parameter(description = "입력값")
+    @Schema(description = "입력값", defaultValue = "text")
     private String word;
 
 }

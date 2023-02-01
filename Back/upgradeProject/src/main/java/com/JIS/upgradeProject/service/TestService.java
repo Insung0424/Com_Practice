@@ -23,12 +23,24 @@ public class TestService {
         return testRepository.findAll();
     }
 
-    public void plus (TestDTO testDTO) {
-        testRepository.save(testDTO.toEntity());
+    public TestEntity plus (TestDTO testDTO) {
+        return testRepository.save(testDTO.toEntity());
     }
 
-    public void empty(TestDTO testDTO) {
-        testRepository.delete(testDTO.toEntity());
+    public int empty(TestDTO testDTO) {
+        int i = 1;
+        try {
+            testRepository.deleteById(testDTO.getId());
+        }catch (Exception e) {
+            e.printStackTrace();
+            i=0;
+            return i;
+        }
+        return i;
+    }
+
+    public long amount() {
+        return testRepository.count();
     }
 
 
