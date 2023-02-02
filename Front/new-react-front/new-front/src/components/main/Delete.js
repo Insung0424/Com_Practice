@@ -1,6 +1,6 @@
 const Delete = (props) => {
   const deleteOne = (e) => {
-    const id = e.dataset.id;
+    const id = e.target.dataset.id;
 
     fetch("/content/minus", {
       method: "DELETE",
@@ -17,31 +17,20 @@ const Delete = (props) => {
           alert(data);
         }
         console.log(data);
-        //   GetAll();
+        props.onParentGetAll();
       });
   };
-
+  
   return (
-    <table>
-      <thead>
-        <tr>
-          <td>ID</td>
-          <td>Word</td>
-          <td>button</td>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>{props.item.id}</td>
-          <td>{props.item.word}</td>
-          <td>
-            <button type="button" onClick={deleteOne} data-id={props.item.id}>
-              삭제
-            </button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    <tr>
+      <td>{props.data.id}</td>
+      <td>{props.data.word}</td>
+      <td>
+        <button type="button" onClick={deleteOne} data-id={props.data.id}>
+          삭제
+        </button>
+      </td>
+    </tr>
   );
 };
 

@@ -1,4 +1,4 @@
-const PostData = () => {
+const PostData = (props) => {
 
     const postData = () => {
         let word = document.getElementById("inputText").value;
@@ -21,6 +21,7 @@ const PostData = () => {
 		  .then((data) => {
 			  alert(data);
 			  document.getElementById("inputText").value = "";
+			  props.onTakeGetAll();
 		  });
     }
 

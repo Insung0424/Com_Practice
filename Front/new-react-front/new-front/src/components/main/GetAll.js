@@ -1,10 +1,14 @@
-import Delete from "./Delete";
+import { useState, useImperativeHandle, forwardRef } from "react";
+import ItemTable from "./ItemTable";
 
-const GetAll = () => {
+const GetAll = (props, ref) => {
+  const [arr, setArr] = useState([{ id: 0, word: "미반영" }]);
+
+  useImperativeHandle(ref, () => ({
+    GetAll,
+  }));
+
   const GetAll = () => {
-    const DataList = document.getElementById("AllDataList");
-    const arr = [];
-
     fetch("/content/list", {
       method: "GET",
       headers: {
@@ -15,29 +19,22 @@ const GetAll = () => {
         return response.json();
       })
       .then((data) => {
-        data.map((item) => {
-          arr.push(item);
-        });
-        console.log(arr);
-
-        if (arr.length == 0) {
+        if (data.length === 0) {
           return;
         } else {
-          arr.map((item) => {
-            <Delete key={item.id} item={item} />;
-          });
+          setArr(data, ...arr);
         }
       });
   };
 
   return (
     <div>
-      <span id="AllDataList"></span>
       <button type="button" onClick={GetAll}>
-        Load all data
+        Load All Data
       </button>
+      <ItemTable items={arr} onGetAll={GetAll} />
     </div>
   );
 };
 
-export default GetAll;
+export default forwardRef(GetAll);
