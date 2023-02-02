@@ -1,5 +1,22 @@
-const Delete = (props) => {
-  const deleteOne = (e) => {
+import React from "react";
+
+interface item {
+  key : number;
+  onParentGetAll(): void;
+  data: { 
+    id: number;
+    word : string; 
+  } ;
+  id: number;
+  word: string;
+}
+
+interface dataID {
+  target: { dataset: { id: number; } } ;
+}
+
+const Delete = (props: item) => {
+  const deleteOne = (e:any) => {
     const id = e.target.dataset.id;
 
     fetch("/content/minus", {
@@ -20,7 +37,7 @@ const Delete = (props) => {
         props.onParentGetAll();
       });
   };
-  
+
   return (
     <tr>
       <td>{props.data.id}</td>

@@ -1,7 +1,7 @@
-import { useState, useImperativeHandle, forwardRef } from "react";
+import React, { useState, useImperativeHandle, forwardRef } from "react";
 import ItemTable from "./ItemTable";
 
-const GetAll = (props, ref) => {
+const GetAll = ( ref ) => {
   const [arr, setArr] = useState([{ id: 0, word: "미반영" }]);
 
   useImperativeHandle(ref, () => ({
